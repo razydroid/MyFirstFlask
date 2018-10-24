@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Register</h2>
+	<form action="{{ url_for('register') }}" method="post">
+        <dt>
+
+            <dd>{{ form.hidden_tag() }}</dd>
+            <dt>{{ form.firstname.label }}</dt>
+            <dt>{% if form.firstname.errors %}
+                    {% for error in form.firstname.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+            {% endif %}</dt>
+            <dd>{{ form.firstname }}</dd>
+            <dt>{{ form.lastname.label }}</dt>
+            <dt>{% if form.lastname.errors %}
+                    {% for error in form.lastname.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endif %}</dt>
+            <dd>{{ form.lastname }}</dd>
+            <dt>{{ form.email.label }}</dt>
+            <dt>{% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endif %}</dt>
+            <dd>{{ form.email }}</dd>
+            <dt>{{ form.password.label }}</dt>
+            <dt>{% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endif %}</dt>
+            <dd>{{ form.password }}</dd>
+        </dl>
+        {{ form.submit() }}
+	</form>
+{% endblock %}
