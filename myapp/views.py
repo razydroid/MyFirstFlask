@@ -61,7 +61,10 @@ def profile():
 
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    else:
+        return render_template('home.html')
 
 @app.route("/add_post")
 def add_post():
@@ -80,4 +83,5 @@ def like_post(post_id):
 
 @app.route("/logout")
 def logout():
-    return "TODO"
+    session.pop("email",None)
+    return redirect(url_for('index'))
