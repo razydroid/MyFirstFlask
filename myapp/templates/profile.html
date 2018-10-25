@@ -1,38 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<h2>{{ username }}'s profile</h2>
+<h2> Profile Page</h2>
 
-{% if session.username %}
-    {% if session.username == username %}
-        <h3>Users similar to you:</h3>
+{% if session.email %}
+    <h2> You have successfully Logged in to your home page. Your details are as follows.</h2>
+    <h2> First Name : {{ firstname }}</h2>
+    <h2> First Name : {{ lastname }}</h2>
+    <h2> First Name : {{ email }}</h2>
 
-          {% for user in similar %}
-            <p>
-            <a href="{{ url_for('profile', username=user.similar_user) }}">{{ user.similar_user }}</a>
-            also blogs about <i>{{ ", ".join(user.tags) }}</i>
-            </p>
-          {% else %}
-            <p>There aren't any users who've blogged about the same tags as you!</p>
-          {% endfor %}
-
-        <h3>Your recent posts:</h3>
-
-    {% else %}
-
-  <p>{{ username }} has liked {{ common.likes }} of your posts and
-      {% if common.tags %}
-      also blogs about <i>{{ ", ".join(common.tags) }}</i>
-      {% else %}
-      hasn't blogged about any of the same tags
-      {% endif %}
-  </p>
-
-  <h3>{{ username }}'s recent posts:</h3>
-
-    {% endif %}
 {% endif %}
-
-{% include "display_posts.html" %}
-
 {% endblock %}

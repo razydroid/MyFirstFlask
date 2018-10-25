@@ -27,8 +27,8 @@ class User(db.Model):
         self.firstname = firstname.title()
         self.lastname = lastname.title()
         self.email = email.lower()
-        self.password = generate_password_hash(password)
-        # self.encrypt_password(self, password)
+        # self.password = generate_password_hash(password)
+        self.encrypt_password(password)
 
     def find_all_users(self):
         return [User.json(user) for user in User.query.all()]
