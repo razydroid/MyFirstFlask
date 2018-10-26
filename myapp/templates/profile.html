@@ -4,10 +4,10 @@
 <h2> Profile Page</h2>
 
 {% if session.email %}
-    <h2> You have successfully Logged in to your home page. Your details are as follows.</h2>
-    <h2> First Name : {{ firstname }}</h2>
-    <h2> First Name : {{ lastname }}</h2>
-    <h2> First Name : {{ email }}</h2>
+    <h2>Your profile details are as follows.</h2>
+    <h3> First Name : {{ user.firstname }}</h3>
+    <h3> Last Name : {{ user.lastname }}</h3>
+    <h3> Email : {{ session.email }}</h3>
 
 {% endif %}
 {% endblock %}
