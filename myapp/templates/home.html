@@ -3,11 +3,8 @@
 
 <h2> Home Page</h2>
 
-<!--{% if session.email %}-->
-    <!--<h2> You have successfully Logged in to your home page. Your details are as follows.</h2>-->
-    <!--<h2> First Name : {{ firstname }}</h2>-->
-    <!--<h2> First Name : {{ lastname }}</h2>-->
-    <!--<h2> First Name : {{ email }}</h2>-->
+{% if session.email %}
+    <h2> You have successfully Logged in to your home page as {{session.email}}</h2>
 
-<!--{% endif %}-->
+{% endif %}
 {% endblock %}
